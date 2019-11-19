@@ -18,6 +18,7 @@
         <module>spring-provider-A</module>
         <module>spring-consumer-ribbon</module>
         <module>spring-consumer-feign</module>
+        <module>spring-zuul-clusterA</module>
     </modules>
 
 
