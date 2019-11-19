@@ -7,6 +7,9 @@
     <groupId>com.zcswl.spring</groupId>
     <artifactId>spring-cloud</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-eureka-framework</module>
+    </modules>
 
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>

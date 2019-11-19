@@ -1,0 +1,14 @@
+#在测试过程中，我们通过改写-Dserver.port=8764 ，创建一个新得spring-provider-A模块，表示集群
+
+server:
+  port: 8763
+
+spring:
+  application:
+    name: service-hi
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/
+

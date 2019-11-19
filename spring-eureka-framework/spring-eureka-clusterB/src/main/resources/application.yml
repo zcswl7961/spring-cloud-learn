@@ -1,0 +1,25 @@
+#服务接口
+server:
+  port: 8762
+
+#注册中心（spring-eurkea-clusterA节点数据）
+# eureka.instance.hostname : 的配置需要对应window配置中的C:\Windows\System32\drivers\etc\hosts中的配置
+# 127.0.0.1       server1
+# 127.0.0.1       server2
+#eureka.server.enableSelfPreservation:是否向注册中心注册自己
+#通过eureka.client.registerWithEureka：false和fetchRegistry：false来表明自己是一个eureka server.
+eureka:
+  server:
+    enable-self-preservation: false   #关闭自我保护机制
+    eviction-interval-timer-in-ms: 4000 #设置清理间隔（单位：毫秒 默认是60*1000）
+  instance:
+    hostname: server2
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://server2:8762/eureka/,http://server1:8761/eureka/
+
+spring:
+  application:
+    name: eurka-server
