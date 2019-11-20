@@ -19,6 +19,9 @@
         <module>spring-consumer-ribbon</module>
         <module>spring-consumer-feign</module>
         <module>spring-zuul-clusterA</module>
+        <module>spring-zipkin-server</module>
+        <module>spring-zipkin-hi</module>
+        <module>spring-zipkin-miya</module>
     </modules>
 
 
