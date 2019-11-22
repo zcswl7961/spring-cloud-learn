@@ -1,0 +1,62 @@
+# https://www.fangzhipeng.com/springcloud/2018/12/21/sc-f-gatway3.html
+
+
+
+server:
+  port: 8801
+spring:
+  profiles:
+    active: elapse_route
+  application:
+    name: spring-gateway-filter-server
+
+
+
+---
+# 有一个filter为AddRequestHeaderGatewayFilterFactory(约定写成AddRequestHeader)，
+# AddRequestHeader过滤器工厂会在请求头加上一对请求头 名称为X-Request-Foo，值为Bar
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: add_request_header_route
+        uri: http://httpbin.org:80/get
+        filters:
+        - AddRequestHeader=X-Request-Foo, Bar
+        predicates:
+        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+  profiles: add_request_header_route
+
+
+---
+#RewritePath GatewayFilter Factory
+#所有的/foo/**开始的路径都会命中配置的router
+#在本案例中配置了RewritePath过滤器工厂，此工厂将/foo/(?.*)重写为{segment}
+#比如在网页上请求localhost:8081/foo/forezp，此时会将请求转发到https://blog.csdn.net/forezp的页面
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: rewritepath_route
+        uri: https://blog.csdn.net
+        predicates:
+        - Path=/foo/**
+        filters:
+        - RewritePath=/foo/(?<segment>.*), /$\{segment}
+  profiles: rewritepath_route
+
+
+---
+#自定义
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: elapse_route
+        uri: http://httpbin.org:80/get
+        filters:
+        - RequestTime=true
+        predicates:
+        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+  profiles: elapse_route
+
