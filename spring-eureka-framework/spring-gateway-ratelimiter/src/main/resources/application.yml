@@ -1,0 +1,36 @@
+#spring cloud gateway ratelimiter
+# https://www.fangzhipeng.com/springcloud/2018/12/22/sc-f-gatway4.html
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/
+
+#在下面的配置信息中，设置了RequestRateLimiter限流过滤器，该过滤器需要配置三个参数
+#burstCapacity ： 令牌桶的总容量
+#replenishRate ： 令牌桶每秒填充平均速率
+#key-resolver ： 用于限流的键的解析器的Bean对象的名字，它使用 SpEL 表达式根据#{@beanName}从 Spring 容器中获取 Bean 对象。
+
+server:
+  port: 8802
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: limit_route
+        uri: http://httpbin.org:80/get
+        predicates:
+        - After=2017-01-20T17:42:47.789-07:00[America/Denver]
+        filters:
+        - name: RequestRateLimiter
+          args:
+            key-resolver: '#{@hostAddrKeyResolver}'
+            redis-rate-limiter.replenishRate: 1
+            redis-rate-limiter.burstCapacity: 3
+  application:
+    name: gateway-limiter
+  redis:
+    host: localhost
+    port: 6379
+    database: 0

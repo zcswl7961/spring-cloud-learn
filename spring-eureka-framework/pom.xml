@@ -24,6 +24,7 @@
         <module>spring-zipkin-miya</module>
         <module>spring-gateway-predict-server</module>
         <module>spring-gateway-filter-server</module>
+        <module>spring-gateway-ratelimiter</module>
     </modules>
 
 
