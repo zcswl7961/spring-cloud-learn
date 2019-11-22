@@ -9,3 +9,12 @@ eureka:
 spring:
   application:
     name: service-ribbon
+
+turbine:
+  app-config: service-ribbon
+  aggregator:
+    clusterConfig: default
+  clusterNameExpression: new String("default")
+  combine-host: true
+  instanceUrlSuffix:
+    default: actuator/hystrix.stream
