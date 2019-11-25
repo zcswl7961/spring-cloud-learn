@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zcswl.spring</groupId>
-    <artifactId>spring-gateway-server</artifactId>
+    <artifactId>spring-gateway-predict-server</artifactId>
 
     <dependencies>
 
