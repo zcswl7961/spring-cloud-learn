@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zcswl.spring</groupId>
-    <artifactId>spring-eureka-framework</artifactId>
+    <artifactId>spring-cloud-framework</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>spring-eureka-clusterA</module>
