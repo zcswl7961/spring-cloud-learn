@@ -8,9 +8,10 @@
     <artifactId>spring-cloud</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>spring-eureka-framework</module>
+        <module>spring-cloud-framework</module>
         <module>spring-alibaba-framework</module>
         <module>spring-boot-framework</module>
+        <module>spring-netty-framework</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -21,6 +22,10 @@
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <spring-alibaba.version>2.1.1.RELEASE</spring-alibaba.version>
+
+        <!-- 其他开源包版本 -->
+        <netty-all.version>4.1.45.Final</netty-all.version>
+        <jackson.core.version>2.10.1</jackson.core.version>
     </properties>
 
 
@@ -54,7 +59,28 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- netty 引入 -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.core.version}</version>
+            </dependency>
+
         </dependencies>
+
     </dependencyManagement>
 
 
