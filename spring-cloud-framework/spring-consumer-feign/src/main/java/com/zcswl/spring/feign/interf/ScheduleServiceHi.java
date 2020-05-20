@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author zhoucg
  * @date 2019-11-19 15:45
  */
-@FeignClient(value = "service-hi",fallback = SchedualServiceHiHystric.class)
-public interface SchedualServiceHi {
+@FeignClient(value = "service-hi",fallback = ScheduleServiceHiHystric.class)
+public interface ScheduleServiceHi {
 
+    /**
+     * 接口调用
+     * @param name 名称
+     * @return 返回结果
+     */
     @RequestMapping(value = "/provider",method = RequestMethod.GET)
     String sayProvider(@RequestParam(value = "name") String name);
 }

@@ -20,7 +20,7 @@
         <module>spring-consumer-feign</module>
         <module>spring-zuul-clusterA</module>
         <module>spring-zipkin-server</module>
-        <module>spring-zipkin-hi</module>
+        <!--<module>spring-zipkin-hi</module>-->
         <module>spring-zipkin-miya</module>
         <module>spring-gateway-predict-server</module>
         <module>spring-gateway-filter-server</module>

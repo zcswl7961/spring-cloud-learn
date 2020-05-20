@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-11-19 16:00
  */
 @Component
-public class SchedualServiceHiHystric implements SchedualServiceHi{
+public class ScheduleServiceHiHystric implements ScheduleServiceHi {
 
     @Override
     public String sayProvider(String name) {
