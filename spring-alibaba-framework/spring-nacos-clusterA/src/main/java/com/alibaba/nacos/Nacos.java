@@ -23,6 +23,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
+ * nacos类实现标准
+ *
  * @author nacos
  */
 @SpringBootApplication(scanBasePackages = "com.alibaba.nacos")

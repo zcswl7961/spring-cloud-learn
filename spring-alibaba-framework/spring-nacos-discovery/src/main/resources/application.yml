@@ -1,0 +1,15 @@
+# nacos服务集群地址信息
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: nacos-service-provider
+
+# 服务端口
+server:
+  port: 18082
+
+
+
