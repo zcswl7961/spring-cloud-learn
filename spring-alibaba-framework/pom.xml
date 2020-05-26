@@ -17,6 +17,9 @@
         <module>spring-nacos-discovery</module>
         <module>spring-nacos-feign</module>
         <module>spring-nacos-config</module>
+        <module>spring-nacos-dubbo-server</module>
+        <module>spring-nacos-dubbo-interface</module>
+        <module>spring-nacos-dubbo-client</module>
     </modules>
 
 

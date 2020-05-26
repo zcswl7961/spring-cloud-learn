@@ -1,0 +1,28 @@
+# nacos服务集群地址信息
+
+# 服务端口
+server:
+  port: 18088
+
+
+spring:
+  application:
+    name: dubbo-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+dubbo:
+  registry:
+    address: nacos://127.0.0.1:8848
+  application:
+    name: ${spring.application.name}
+
+
+demo:
+  service:
+    version: 2.0.1
+
+
+
+
