@@ -18,5 +18,6 @@ public interface ScheduleServiceHi {
      * @return 返回结果
      */
     @RequestMapping(value = "/provider",method = RequestMethod.GET)
-    String sayProvider(@RequestParam(value = "name") String name);
+    String sayProvider(@RequestParam("name") String name);
+
 }

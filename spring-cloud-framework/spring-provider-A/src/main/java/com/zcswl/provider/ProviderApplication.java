@@ -9,9 +9,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.net.URI;
@@ -46,7 +44,7 @@ public class ProviderApplication {
     private DiscoveryClient discoveryClient;
 
 
-    @RequestMapping("/provider")
+    @GetMapping(value = "/provider")
     public String test(@RequestParam(value = "name", defaultValue = "zcswl7961") String name) {
 
         List<String> services = discoveryClient.getServices();
@@ -63,4 +61,20 @@ public class ProviderApplication {
 
         return "this port is:" + port + " name is:"+name;
     }
+
+
+    /**
+     * test feign Get Post
+     */
+    @PostMapping(value = "provider")
+    public String postTest(@RequestBody String name) {
+
+        System.out.println(name);
+
+        return "this method is Post port is:" + port + "     name is:" +name;
+
+
+    }
+
+
 }
