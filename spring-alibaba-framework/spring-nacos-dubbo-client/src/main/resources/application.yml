@@ -14,15 +14,10 @@ spring:
         server-addr: 127.0.0.1:8848
 dubbo:
   registry:
+    #address: spring-cloud://localhost
     address: nacos://127.0.0.1:8848
-  application:
-    name: ${spring.application.name}
-
-
-demo:
-  service:
-    version: 2.0.1
-
-
+  cloud:
+    # 用于服务消费方订阅服务提供方的应用名称列表，若需要订阅多个，使用 “,” 隔开
+    subscribed-services: dubbo-provider
 
 

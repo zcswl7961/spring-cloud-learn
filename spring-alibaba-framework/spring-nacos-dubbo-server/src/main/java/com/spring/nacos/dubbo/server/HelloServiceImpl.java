@@ -7,7 +7,7 @@ import org.apache.dubbo.config.annotation.Service;
  * @author zhoucg
  * @date 2020-05-26 11:09
  */
-@Service(group = "provider", version = "${demo.service.version}")
+@Service(group = "provider")
 public class HelloServiceImpl implements HelloService {
 
     public String sayHello(String name) {

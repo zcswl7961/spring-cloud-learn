@@ -17,33 +17,29 @@
 
 
     <dependencies>
+        <!-- sample API  -->
         <dependency>
             <groupId>com.zcswl.spring</groupId>
             <artifactId>spring-nacos-dubbo-interface</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- Spring Boot dependencies -->
         <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>${revision}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-actuator</artifactId>
         </dependency>
+
+        <!-- Dubbo spring cloud starter -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-dubbo</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.dubbo</groupId>
-            <artifactId>dubbo-registry-nacos</artifactId>
-            <version>${revision}</version>
         </dependency>
 
         <dependency>

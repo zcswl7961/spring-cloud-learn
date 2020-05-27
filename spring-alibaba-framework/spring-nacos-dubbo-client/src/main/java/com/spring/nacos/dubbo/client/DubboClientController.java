@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DubboClientController {
 
 
-    @Reference(group = "provider",version = "${demo.service.version}")
+    @Reference(group = "provider")
     private HelloService helloService;
 
     @GetMapping("/hello")
