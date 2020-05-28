@@ -17,9 +17,12 @@
         <module>spring-nacos-discovery</module>
         <module>spring-nacos-feign</module>
         <module>spring-nacos-config</module>
-        <module>spring-nacos-dubbo-server</module>
-        <module>spring-nacos-dubbo-interface</module>
-        <module>spring-nacos-dubbo-client</module>
+        <module>spring-alibaba-dubbo-server</module>
+        <module>spring-alibaba-dubbo-interface</module>
+        <module>spring-alibaba-dubbo-client</module>
+        <module>spring-alibaba-sentinel</module>
+        <module>spring-alibaba-sentinel-dashboard</module>
+
     </modules>
 
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-cloud</artifactId>
+        <groupId>com.zcswl.spring</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-alibaba-sentinel-dashboard</artifactId>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <curator.version>4.0.1</curator.version>
+        <project.sentinel.version>1.8.0-SNAPSHOT</project.sentinel.version>
+    </properties>
+
+    <!-- 通过阿里巴巴官方源码构建sentinel-dashboard -->
+    <!-- https://github.com/alibaba/Sentinel/blob/master/pom.xml-->
+
+
+</project>

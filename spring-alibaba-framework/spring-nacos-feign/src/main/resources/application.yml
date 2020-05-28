@@ -4,12 +4,22 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    # 配置sentinel的服务地址
+    sentinel:
+      transport:
+        dashboard: localhost:8099
   application:
     name: nacos-service-feign
 
 # 服务端口
 server:
   port: 18083
+
+feign:
+  sentinel:
+    enabled: true
+
+
 
 
 

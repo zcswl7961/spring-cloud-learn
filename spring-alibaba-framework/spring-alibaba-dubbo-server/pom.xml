@@ -9,10 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-nacos-dubbo</artifactId>
+    <artifactId>spring-alibaba-dubbo-server</artifactId>
 
     <properties>
         <revision>2.7.3</revision>
+        <curator.version>4.0.1</curator.version>
     </properties>
 
 
@@ -20,7 +21,7 @@
         <!-- sample API  -->
         <dependency>
             <groupId>com.zcswl.spring</groupId>
-            <artifactId>spring-nacos-dubbo-interface</artifactId>
+            <artifactId>spring-alibaba-dubbo-interface</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
@@ -46,6 +47,36 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
+
+
+        <!-- 使用zookeeper作为dubbo注册中心 START -->
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.6</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-recipes</artifactId>
+            <version>4.2.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.zookeeper</groupId>
+                    <artifactId>zookeeper</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- END -->
+
 
     </dependencies>
 

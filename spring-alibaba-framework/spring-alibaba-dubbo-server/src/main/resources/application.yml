@@ -8,19 +8,20 @@ server:
 spring:
   application:
     name: dubbo-provider
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
 dubbo:
   scan:
     base-packages: com.spring.nacos.dubbo.server
   protocol:
     name: dubbo
-    port: 8888
+    port: -1
   registry:
+    address: zookeeper://192.168.129.128:2181
     # 挂载到nacos
-    address: nacos://127.0.0.1:8848
+    #address: nacos://127.0.0.1:8848
     # 挂载到spring-cloud 注册中心
     #address: spring-cloud://localhost
   application:

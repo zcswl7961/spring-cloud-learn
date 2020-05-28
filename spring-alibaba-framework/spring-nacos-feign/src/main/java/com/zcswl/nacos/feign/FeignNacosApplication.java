@@ -8,6 +8,11 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * alibaba nacos+feign 作为服务接口使用
  *
+ *
+ * alibaba nacos 作为服务注册中心， feign作为服务发现
+ *
+ * sentinel 服务监控
+ *
  * @author zhoucg
  * @date 2020-05-23 12:33
  */

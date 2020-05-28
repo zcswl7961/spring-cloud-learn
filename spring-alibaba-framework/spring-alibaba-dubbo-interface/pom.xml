@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-nacos-dubbo-interface</artifactId>
+    <artifactId>spring-alibaba-dubbo-interface</artifactId>
 
 
 </project>
