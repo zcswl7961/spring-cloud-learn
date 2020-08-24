@@ -1,0 +1,65 @@
+eureka:
+  client:
+    serviceUrl:
+      # eureka service 使用了security
+      defaultZone:  http://zhoucg:zhoucg@localhost:8761/eureka/
+
+# 配置对应的服务端口
+server:
+  port: 8999
+
+
+# spring cloud gateway 介绍：https://blog.csdn.net/qq_38380025/article/details/104936705
+
+# router:路由是网关的基本构建，它由ID,目标URL，谓词集合和过滤器集合定义，如果聚合谓词为真，则匹配路由。
+
+#Predicate 断言：这是一个Java 8 Function Predicate。输入类型是 Spring Framework ServerWebExchange。
+#  这允许开发人员可以匹配来自HTTP请求的任何内容，例如Header或参数。
+
+# 网关配置
+
+#  StripPrefix 通过配置parts来表示截取路径前缀的数量， 如这个例子，如果请求的接口为 http://localhost:8999/service/provider?name=zhoucgwl
+#  则路径会变成 /provider?name=zhoucgwl 会将/service 截取掉
+spring:
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 使用服务发现路由
+          enabled: true
+      # see  GatewayProperties# routes 每一个routes 配置含有id, url, order, filters, predicates组成
+      # id配置： 默认配置：UUID.randomUUID().toString(); 可以不配置
+      # uri配置：标准的URI配置结果 lb
+      # predicates配置： 两种配置方式：name args text see:https://cloud.spring.io/spring-cloud-static/spring-cloud-gateway/2.2.3.RELEASE/reference/html/#configuring-route-predicate-factories-and-gateway-filter-factories
+      #                 系统默认的Predicates: Path,Between,Before,Query,Cookie,Header,Host,Method,ReadBody,Weight,CloudFoundry
+      # filters:
+      routes:
+        # 配置对应的 service-hi
+        - id: service-hi
+          uri: lb://service-hi
+          predicates:
+             - Path=/service/**
+             - After=2018-12-25T14:33:47.789+08:00
+             - Header=hello,A
+          filters:
+            - StripPrefix=1
+        - id: eureka-client-demo
+          uri: lb://eureka-client-demo
+          predicates:
+            - Path=/client/**
+          filters:
+            - StripPrefix=1
+        - id: service-feign
+          uri: lb://service-feign
+          predicates:
+            - Path=/feign/**
+          filters:
+            - StripPrefix=1
+      enabled: true # 默认的网关配置，如果引用了spring-cloud-starter-gateway ，又不想用它，设置为false
+  application:
+    name: service-gateway

@@ -19,9 +19,17 @@
     <description>spring cloud Alibaba spring cloud framework框架学习</description>
 
     <properties>
-        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
-        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
-        <spring-alibaba.version>2.1.1.RELEASE</spring-alibaba.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- 升级spring-cloud spring-boot 版本-->
+        <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <spring-alibaba.version>2.2.1.RELEASE</spring-alibaba.version>
+        <!-- 原来的版本-->
+        <!--<spring-boot.version>2.1.6.RELEASE</spring-boot.version>-->
+        <!--<spring-cloud.version>Greenwich.SR2</spring-cloud.version>-->
+        <!--<spring-alibaba.version>2.1.1.RELEASE</spring-alibaba.version>-->
 
         <!-- 其他开源包版本 -->
         <netty-all.version>4.1.45.Final</netty-all.version>
@@ -97,7 +105,6 @@
                 <!-- provided 表示该包只在编译和测试的时候用 -->
                 <scope>provided</scope>
             </dependency>
-
 
         </dependencies>
 

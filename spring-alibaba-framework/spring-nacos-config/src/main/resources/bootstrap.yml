@@ -1,7 +1,27 @@
 # springboot中配置文件的加载是存在优先级顺序的，bootstrap优先级高于application
 spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: spring-nacos-config
+  profiles:
+    active: dev
   cloud:
     nacos:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: properties
+        #namespace: ${zuihou.nacos.namespace}
+# 2.2.1 的写法
+#        shared-configs:
+#          - dataId: common.properties
+#            refresh: true
+        enabled: true
+        shared-dataids: common.properties
+      discovery:
+        server-addr: 127.0.0.1:8848
+        #namespace: ${zuihou.nacos.namespace}
+        #metadata: # 元数据，用于权限服务实时获取各个服务的所有接口
+        #  management.context-path: ${server.servlet.context-path:}${spring.mvc.servlet.path:}${management.endpoints.web.base-path:}
+server:
+  port: 18085

@@ -9,6 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- spring boot admin 和spring boot 版本之间的依赖关系-->
+    <properties>
+        <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
+    </properties>
+
     <groupId>com.zcswl.spring</groupId>
     <artifactId>spring-boot-admin-server</artifactId>
 
@@ -16,7 +21,7 @@
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-server</artifactId>
-            <version>2.1.0</version>
+            <version>${spring-boot-admin.version}</version>
         </dependency>
 
         <dependency>

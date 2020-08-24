@@ -25,6 +25,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 /**
  * nacos类实现标准
  *
+ * 配置 + 服务注册  中心
+ *
  * @author nacos
  */
 @SpringBootApplication(scanBasePackages = "com.alibaba.nacos")

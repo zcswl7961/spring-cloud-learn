@@ -1,6 +1,5 @@
 package com.zcswl.provider;
 
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -9,6 +8,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,6 +29,7 @@ import java.util.List;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
+@EnableFeignClients
 @RestController
 public class ProviderApplication {
 
@@ -42,6 +43,19 @@ public class ProviderApplication {
 
     @Resource
     private DiscoveryClient discoveryClient;
+
+    @Autowired
+    private FeignService feignService;
+
+
+    @GetMapping("/hi/{name}")
+    public String sayHi(@PathVariable String name) {
+
+        String s = feignService.sayProvider(name);
+
+        return s;
+
+    }
 
 
     @GetMapping(value = "/provider")

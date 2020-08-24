@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.spring.common.fallback.EurekaClientHystric,\
+com.spring.common.fallback.ScheduleServiceHiHystric

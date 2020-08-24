@@ -9,6 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <properties>
+        <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
+    </properties>
     <groupId>com.zcswl.spring</groupId>
     <artifactId>spring-boot-admin-client</artifactId>
 
@@ -16,7 +19,7 @@
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>2.1.0</version>
+            <version>${spring-boot-admin.version}</version>
         </dependency>
 
         <dependency>

@@ -1,15 +1,20 @@
 spring:
   application:
     name: service-feign
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
 
 server:
-  port: 8766
+  port: 8770
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/
-
+#      defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/
+      defaultZone:  http://zhoucg:zhoucg@localhost:8761/eureka/
 
 
 #开启feign hystix熔断器

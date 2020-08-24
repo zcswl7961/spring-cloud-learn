@@ -14,9 +14,12 @@ public class TestController {
     @Value("${author}")
     private String author;
 
+    @Value("${zcg.home}")
+    private String home;
+
 
     @GetMapping("/hello")
     public String hello() {
-        return author;
+        return author + home;
     }
 }

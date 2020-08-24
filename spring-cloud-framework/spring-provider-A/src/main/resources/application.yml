@@ -1,14 +1,21 @@
-#在测试过程中，我们通过改写-Dserver.port=8764 ，创建一个新得spring-provider-A模块，表示集群
-
+# 在测试过程中，我们通过改写-Dserver.port=8764 ，创建一个新得spring-provider-A模块，表示集群
+# 该类作为一个服务module启动，并连接对应的服务
 server:
   port: 8763
 
 spring:
   application:
     name: service-hi
+  # zipkin链路调用服务
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/
+      defaultZone: http://zhoucg:zhoucg@127.0.0.1:8761/eureka/
 

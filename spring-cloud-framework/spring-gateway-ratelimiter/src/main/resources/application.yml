@@ -2,10 +2,12 @@
 # https://www.fangzhipeng.com/springcloud/2018/12/22/sc-f-gatway4.html
 
 
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/
+      #defaultZone: http://server1:8761/eureka/,http://server2:8762/eureka/
+      defaultZone: http://localhost:8761/eureka
 
 #在下面的配置信息中，设置了RequestRateLimiter限流过滤器，该过滤器需要配置三个参数
 #burstCapacity ： 令牌桶的总容量

@@ -10,16 +10,32 @@ server:
 #通过eureka.client.registerWithEureka：false和fetchRegistry：false来表明自己是一个eureka server.
 eureka:
   server:
-    enable-self-preservation: false   #关闭自我保护机制
-    eviction-interval-timer-in-ms: 4000 #设置清理间隔（单位：毫秒 默认是60*1000）
+    # Eureka的自我保护机制的设置
+    enable-self-preservation: false   #关闭自我保护机制 https://mp.weixin.qq.com/s/vwPstQ0R0s_PsEhZnALP9Q
+    eviction-interval-timer-in-ms: 4000 #设置清理间隔（单位：毫秒 默认是60*1000）.定时清理无效节点的频率
+    response-cache-update-interval-ms: 30000 # eureka server刷新readCacheMap的时间，注意，client读取的是readCacheMap，这个时间决定了多久会把readWriteCacheMap的缓存更新到readCacheMap上
   instance:
-    hostname: server1
+    hostname: localhost
+    prefer-ip-address: true
+    # 服务过期时间配置,超过这个时间没有接收到心跳EurekaServer就会将这个实例剔除
+    lease-expiration-duration-in-seconds: 15
+    # 服务刷新时间， 每个这个时间会主动心跳一次
+    lease-renewal-interval-in-seconds: 5
   client:
-    registerWithEureka: true
-    fetchRegistry: true
+    # 是否注册到Eureka服务器中，单节点下的Eureka不需要。如果Eureka是集群配置需要设置为true
+    registerWithEureka: false
+    # 是否从Eureka服务端获取注册信息，单节点下不需要，如果Eureka是集群配置需要设置为true
+    fetchRegistry: false
     serviceUrl:
-      defaultZone: http://server2:8762/eureka/,http://server1:8761/eureka/
+      defaultZone: http://zhoucg:zhoucg@localhost:8761/eureka/
+#    serviceUrl:
+#      defaultZone: http://server2:8762/eureka/,http://server1:8761/eureka/
 
 spring:
   application:
     name: eurka-server
+  # 增加对应的security验证操作
+  security:
+    user:
+      name: zhoucg
+      password: zhoucg

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: eureka-client-demo
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
+
+eureka:
+  client:
+    serviceUrl:
+      # eureka service 使用了security
+      defaultZone:  http://zhoucg:zhoucg@localhost:8761/eureka/
+server:
+  port: 8899

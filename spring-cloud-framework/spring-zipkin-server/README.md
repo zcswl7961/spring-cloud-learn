@@ -6,3 +6,13 @@ spring cloud G版本的 zipkin server 构建参考：[zipkin server 构建](http
 [https://blog.csdn.net/zsf4748/article/details/80852264](https://blog.csdn.net/zsf4748/article/details/80852264)
 
 
+
+
+## zipkin server 
+
+启动：java -jar zipkin-server-2.12.2-exec.jar --logging.level.zipkin2=INFO
+
+
+## zipkin 整合kafka
+
+https://www.cnblogs.com/liangzs/p/9450410.html
