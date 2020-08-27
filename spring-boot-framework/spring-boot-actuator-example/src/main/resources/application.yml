@@ -1,15 +1,19 @@
 server:
   port: 8080
+
 management:
-  endpoint:
+  endpoints:
     web:
       exposure:
         include: '*'
         exclude: env
     health: #开启health查询全部的信息展示
       show-details: always
-spring:
-  redis:
-    sentinel:
-      nodes:
 
+
+
+spring:
+  security:
+    user:
+      name: zhoucg
+      password: zhoucg

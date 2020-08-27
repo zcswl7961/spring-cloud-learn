@@ -63,3 +63,13 @@ spring:
       enabled: true # 默认的网关配置，如果引用了spring-cloud-starter-gateway ，又不想用它，设置为false
   application:
     name: service-gateway
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

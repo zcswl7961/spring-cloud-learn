@@ -18,7 +18,7 @@ public interface EurekaClient {
      * hello demo feing
      * @return str
      */
-    @RequestMapping(value = "/loadbalance",method = RequestMethod.GET)
+    @RequestMapping(value = "/loadbalance",method = RequestMethod.GET, produces = "application/json;charset=UTF-8", consumes = "application/json;charset=UTF-8")
     String hello();
 
 }

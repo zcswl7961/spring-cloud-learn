@@ -3,3 +3,24 @@ spring:
     name: admin-server
 server:
   port: 8090
+
+
+#使用eureka进行服务发现操作
+eureka:
+  client:
+    serviceUrl:
+      # eureka service 使用了security
+      defaultZone:  http://zhoucg:zhoucg@localhost:8761/eureka/
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    health-check-url-path: /actuator/health
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS

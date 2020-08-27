@@ -9,6 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * 加上@EnableFeignClients注解开启Feign的功能：
  *
+ * Feign出现乱码。。。。。。。。
+ *
  * @SpringCloudApplication  注解使用
  *
  * @author zhoucg

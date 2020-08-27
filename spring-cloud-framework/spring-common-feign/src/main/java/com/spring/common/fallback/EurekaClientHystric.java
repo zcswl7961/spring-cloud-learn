@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 public class EurekaClientHystric implements EurekaClient {
     @Override
     public String hello() {
+        System.out.println("返回了错误信息， 这个怎么乱码");
         return "错误回调";
     }
 }

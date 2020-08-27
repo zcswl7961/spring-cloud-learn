@@ -14,6 +14,6 @@ public class ScheduleServiceHiHystric implements ScheduleServiceHi {
     @Override
     public String sayProvider(String name) {
         System.out.println("返回了错误信息");
-        return "sorry "+name;
+        return "对不起 "+name;
     }
 }

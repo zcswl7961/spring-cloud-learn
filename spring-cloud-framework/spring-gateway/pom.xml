@@ -33,6 +33,12 @@
             <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
 
+        <!-- spring boot admin server 监控 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
     </dependencies>
 
 

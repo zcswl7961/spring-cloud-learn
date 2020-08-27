@@ -16,3 +16,13 @@ spring cloud G版本的 zipkin server 构建参考：[zipkin server 构建](http
 ## zipkin 整合kafka
 
 https://www.cnblogs.com/liangzs/p/9450410.html
+
+
+官方文档：
+https://github.com/openzipkin/zipkin/tree/master/zipkin-server
+
+
+## zipkin整合 elasticsearch
+
+java -jar zipkin.jar --STORAGE_TYPE=elasticsearch --ES_HOSTS=http://192.168.129.128:9200 --ES_INDEX=zipkin --ES_INDEX_SHARDS=5 --ES_USERNAME=admin --ES_PASSWORD=Admin@123
+java -jar zipkin.jar -DSTORAGE_TYPE=elasticsearch -DES_HOSTS=http://192.168.129.128:9200 -DES_INDEX=zipkin -DES_INDEX_SHARDS=5 -DES_USERNAME=admin -DES_PASSWORD=Admin@123

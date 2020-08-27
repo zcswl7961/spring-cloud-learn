@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Bean;
 
 /**
  * spring-boot actuator: {@link }https://blog.csdn.net/alinyua/article/details/80009435
- *
+ * 官方文档：
+ * https://docs.spring.io/spring-boot/docs/2.2.9.RELEASE/reference/html/production-ready-features.html#production-ready
  *
  *
  * @author zhoucg

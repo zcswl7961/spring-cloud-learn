@@ -24,5 +24,12 @@ feign:
   #httpclient:
   #  enabled: true
 
-
-
+# 开启服务监控设置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
