@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
- * 啊  这个乱码？？？？？？？？？？
  * @author zhoucg
  * @date 2020-08-03 18:03
  */
@@ -40,8 +38,7 @@ public class EurekaClientApplication {
 
     @GetMapping("/test")
     public String test1() {
-        System.out.println("乱码？？？？？？？？？");
-        return "这个会乱码";
+        return "这个会乱码--测试";
     }
 
 }
