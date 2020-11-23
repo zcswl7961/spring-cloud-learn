@@ -1,6 +1,7 @@
-package com.zcswl.netty.service;
+package com.zcswl.netty.server;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -61,4 +62,10 @@ public class SimpleServerHandler extends ChannelInboundHandlerAdapter {
         ctx.flush();
     }
 
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("服务断接收一个链接操作");
+        Channel channel = ctx.channel();
+        super.channelRegistered(ctx);
+    }
 }

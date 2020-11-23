@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <!-- spring-cloud-eureka注册中心集群A -->
-    <groupId>com.zcswl.spring</groupId>
     <artifactId>spring-eureka-clusterA</artifactId>
 
     <dependencies>

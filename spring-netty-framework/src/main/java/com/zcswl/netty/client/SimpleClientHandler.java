@@ -1,6 +1,7 @@
 package com.zcswl.netty.client;
 
 import io.netty.buffer.ByteBuf;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -56,5 +57,17 @@ public class SimpleClientHandler extends ChannelInboundHandlerAdapter {
         encoded.writeBytes(msg.getBytes());
         ctx.write(encoded);
         ctx.flush();
+    }
+
+    /**
+     * channel 链接
+     * @param ctx
+     * @throws Exception
+     */
+    @Override
+    public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("通道注册操作");
+        Channel channel = ctx.channel();
+        super.channelRegistered(ctx);
     }
 }

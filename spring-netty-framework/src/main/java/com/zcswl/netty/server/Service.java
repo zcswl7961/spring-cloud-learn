@@ -1,11 +1,15 @@
-package com.zcswl.netty.service;
+package com.zcswl.netty.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.codec.serialization.ObjectDecoder;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 
-/**
+/**、
+ * netty-example 源码包
  * @author zhoucg
  * @date 2020-03-04 16:07
  */
@@ -32,7 +36,7 @@ public class Service {
          * 使用了多少线程以及如何将它们映射到创建的通道取决于EventLoopGroup实现，甚至可以通过构造函数进行配置。
          *
          */
-        EventLoopGroup acceptor = new NioEventLoopGroup();
+        EventLoopGroup acceptor = new NioEventLoopGroup(1);
         EventLoopGroup worker = new NioEventLoopGroup();
 
         try {
@@ -44,16 +48,14 @@ public class Service {
              *public ServerBootstrap group(EventLoopGroup group)
              *public ServerBootstrap group(EventLoopGroup parentGroup, EventLoopGroup childGroup)
              */
-
             bootstrap.group(acceptor, worker);
 
             /**设置选项
              * 参数：Socket的标准参数（key，value），可自行百度
              * eg:
-             * :bootstrap.option(ChannelOption.SO_BACKLOG, 1024);
+             * bootstrap.option(ChannelOption.SO_BACKLOG, 1024);
              * :bootstrap.option(ChannelOption.SO_KEEPALIVE, true);
              */
-
             bootstrap.option(ChannelOption.SO_BACKLOG, 1024);
 
             // 用于构造socketChannel工厂
@@ -61,8 +63,15 @@ public class Service {
 
             // 传入自定义的客户端handler
             bootstrap.childHandler(new ChannelInitializer() {
+                @Override
                 protected void initChannel(Channel ch) throws Exception {
-                    ch.pipeline().addLast(new SimpleServerHandler());
+                    /**
+                     * 传递对象操作
+                     */
+                    ch.pipeline().addLast(new ObjectEncoder());
+                    ch.pipeline().addLast(new ObjectDecoder(Integer.MAX_VALUE,  ClassResolvers.cacheDisabled(null)));
+                    //ch.pipeline().addLast(new SimpleServerHandler());
+                    ch.pipeline().addLast(new SimpleServerObjectHandler());
                 }
             });
 
