@@ -40,29 +40,29 @@ spring:
       # filters:
       routes:
         # 配置对应的 service-hi
-        - id: service-hi
-          uri: lb://service-hi
+        - id: spring-provider-A
+          uri: lb://spring-provider-A
           predicates:
              - Path=/service/**
              - After=2018-12-25T14:33:47.789+08:00
-             - Header=hello,A
+             - Header=hello,A #注意对应的Header的配置信息，当前表示url需要传递一个header参数，hello=A
           filters:
             - StripPrefix=1
-        - id: eureka-client-demo
-          uri: lb://eureka-client-demo
+        - id: spring-eureka-client
+          uri: lb://spring-eureka-client
           predicates:
             - Path=/client/**
           filters:
             - StripPrefix=1
-        - id: service-feign
-          uri: lb://service-feign
+        - id: spring-consumer-feign
+          uri: lb://spring-consumer-feign
           predicates:
             - Path=/feign/**
           filters:
             - StripPrefix=1
       enabled: true # 默认的网关配置，如果引用了spring-cloud-starter-gateway ，又不想用它，设置为false
   application:
-    name: service-gateway
+    name: spring-gateway
 
 
 management:

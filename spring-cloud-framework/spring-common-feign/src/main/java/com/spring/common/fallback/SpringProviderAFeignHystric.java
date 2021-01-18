@@ -1,6 +1,6 @@
 package com.spring.common.fallback;
 
-import com.spring.common.feign.ScheduleServiceHi;
+import com.spring.common.feign.SpringProviderAFeign;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @date 2019-11-19 16:00
  */
 @Component
-public class ScheduleServiceHiHystric implements ScheduleServiceHi {
+public class SpringProviderAFeignHystric implements SpringProviderAFeign {
 
     @Override
     public String sayProvider(String name) {

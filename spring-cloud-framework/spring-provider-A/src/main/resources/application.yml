@@ -5,7 +5,7 @@ server:
 
 spring:
   application:
-    name: service-hi
+    name: spring-provider-A
   # zipkin链路调用服务
   zipkin:
     base-url: http://localhost:9411

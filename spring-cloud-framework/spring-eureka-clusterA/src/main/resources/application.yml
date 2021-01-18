@@ -39,3 +39,10 @@ spring:
     user:
       name: zhoucg
       password: zhoucg
+
+logging:
+  level:
+    com.netflix.eureka: info
+  file:
+    path: ./logs
+

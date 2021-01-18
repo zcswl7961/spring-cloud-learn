@@ -52,6 +52,7 @@
             </exclusions>
         </dependency>
 
+        <!-- 引入了对应的spring-common-feign模块 -->
         <dependency>
             <groupId>com.zcswl.spring</groupId>
             <artifactId>spring-common-feign</artifactId>

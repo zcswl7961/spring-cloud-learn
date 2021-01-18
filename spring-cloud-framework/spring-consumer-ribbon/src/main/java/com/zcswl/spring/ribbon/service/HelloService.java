@@ -16,7 +16,7 @@ public class HelloService {
     private RestTemplate restTemplate;
 
     /**
-     * 其中 SERVICE-HI就是 spring-provider-A注册进去的服务数据
+     * spring-provider-A注册进去的服务数据
      *
      * 在hiService方法上加上@HystrixCommand注解。该注解对该方法创建了熔断器的功能
      * @param name
@@ -24,7 +24,7 @@ public class HelloService {
      */
     @HystrixCommand(fallbackMethod  = "hiError")
     public String hiService(String name) {
-        return restTemplate.getForObject("http://SERVICE-HI/provider?name="+name,String.class);
+        return restTemplate.getForObject("http://SPRING-PROVIDER-A/provider?name="+name,String.class);
     }
 
     public String hiError(String name) {

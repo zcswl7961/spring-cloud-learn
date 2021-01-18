@@ -9,10 +9,10 @@ public interface CommonConstants {
     /**
      * EUREKA-CLIENT-DEMO 服务
      */
-    String EUREKA_CLIENT = "eureka-client-demo";
+    String EUREKA_CLIENT = "spring-eureka-client";
 
     /**
      * SERVER-HI 服务
      */
-    String SERVER_HI = "service-hi";
+    String SERVER_HI = "spring-provider-A";
 }

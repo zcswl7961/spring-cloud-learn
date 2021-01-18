@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author zhoucg
  * @date 2020-06-04 17:00
  */
-@FeignClient(value = "service-feign")
+@FeignClient(value = "spring-consumer-feign")
 public interface FeignService {
 
 

@@ -30,7 +30,7 @@ public class EurekaClientApplication {
 
     @GetMapping("/loadbalance")
     public String test() {
-        InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka("service-gateway", false);
+        InstanceInfo instanceInfo = eurekaClient.getNextServerFromEureka("spring-gateway", false);
         System.out.println(instanceInfo);
         return "中文乱码处理";
 

@@ -1,7 +1,7 @@
 package com.zcswl.spring.feign.controller;
 
-import com.spring.common.feign.EurekaClient;
-import com.spring.common.feign.ScheduleServiceHi;
+import com.spring.common.feign.SpringEurekaClientFeign;
+import com.spring.common.feign.SpringProviderAFeign;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 /**
+ * 作为Feigin的客户端（也就是接口的提供者）
+ * 同样需要注册到Eureka和zipkin中
  * @author zhoucg
  * @date 2019-11-19 15:46
  */
@@ -17,19 +19,19 @@ import java.io.IOException;
 @AllArgsConstructor
 public class HiController {
 
-    private final ScheduleServiceHi scheduleServiceHi;
+    private final SpringProviderAFeign springProviderAFeign;
 
-    private final EurekaClient eurekaClient;
+    private final SpringEurekaClientFeign springEurekaClientFeign;
 
     @GetMapping(value = "/hi")
     public String sayHi(@RequestParam String name) {
-        return scheduleServiceHi.sayProvider( name );
+        return springProviderAFeign.sayProvider( name );
     }
 
 
     @GetMapping("/client")
-    public String getEurekaClient() {
-        return eurekaClient.hello();
+    public String getSpringEurekaClientFeign() {
+        return springEurekaClientFeign.hello();
     }
 
 
