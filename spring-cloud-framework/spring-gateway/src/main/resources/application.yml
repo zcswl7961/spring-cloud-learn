@@ -9,7 +9,7 @@ server:
   port: 8999
 
 
-# spring cloud gateway 介绍：https://blog.csdn.net/qq_38380025/article/details/104936705
+# spring cloud gateway 介绍：https://spring.io/projects/spring-cloud-gateway
 
 # router:路由是网关的基本构建，它由ID,目标URL，谓词集合和过滤器集合定义，如果聚合谓词为真，则匹配路由。
 
@@ -21,8 +21,12 @@ server:
 #  StripPrefix 通过配置parts来表示截取路径前缀的数量， 如这个例子，如果请求的接口为 http://localhost:8999/service/provider?name=zhoucgwl
 #  则路径会变成 /provider?name=zhoucgwl 会将/service 截取掉
 spring:
+  # spring-boot-starter-zipkin 客户端配置，连接到对应的zipkin服务url配置
   zipkin:
     base-url: http://localhost:9411
+  # 采样率 https://segmentfault.com/a/1190000019037588 固定比率
+  # 使用spring.sleuth.sampler.probability进行配置时，实际上是使用的是：ProbabilityBasedSampler 进行过滤判断，：表示一定概率（采样率）进行过滤掉对应的结果（BitSet底层）
+  # 使用spring.sleuth.sampler.probability进行配置时，实际上是使用的是：RateLimitingSampler：表示每秒间隔接收trace的量，最小为o，最大为integer的最大值
   sleuth:
     sampler:
       probability: 1

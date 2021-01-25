@@ -28,6 +28,7 @@
         </dependency>
 
         <!-- 权限 -->
+        <!-- eureka页面增加用户名/密码认证权限-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>

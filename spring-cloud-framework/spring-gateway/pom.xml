@@ -16,6 +16,7 @@
     <dependencies>
 
         <!-- spring cloud gateway 是使用netty+webflux 实现，因此不需要引入web模块 -->
+        <!-- spring cloud gateway 包不能以war包的形式运行在服务容器中如：Tomcat-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-gateway</artifactId>
