@@ -17,7 +17,7 @@ spring:
 #          - dataId: common.properties
 #            refresh: true
         enabled: true
-        shared-dataids: common.properties
+        shared-dataids: common.properties # 不会动态加载对应的common.properties
       discovery:
         server-addr: 127.0.0.1:8848
         #namespace: ${zuihou.nacos.namespace}

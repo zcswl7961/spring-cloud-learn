@@ -6,12 +6,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 /**
+ * 通过refreshScope 实现动态的配置加载
  * @author zhoucg
  * @date 2020-05-24 9:20
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@RefreshScope
 public class ConfigApplication {
 
 
