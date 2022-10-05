@@ -35,7 +35,7 @@
 
         <!-- 其他开源包版本 -->
         <netty-all.version>4.1.45.Final</netty-all.version>
-        <jackson.core.version>2.10.1</jackson.core.version>
+        <jackson.core.version>2.12.6.1</jackson.core.version>
 
         <guava.version>28.0-jre</guava.version>
         <lombok.version>1.18.12</lombok.version>
