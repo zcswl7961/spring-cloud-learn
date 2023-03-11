@@ -1,0 +1,9 @@
+nacos:
+  address: 127.0.0.1:8848
+  data-id: dhap-gateway #
+  group-id: AAA
+  timeout: 5000
+
+spring:
+  application:
+    name: gateway-route

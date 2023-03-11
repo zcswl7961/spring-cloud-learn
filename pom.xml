@@ -12,6 +12,7 @@
         <module>spring-alibaba-framework</module>
         <module>spring-boot-framework</module>
         <module>spring-netty-framework</module>
+        <module>spring-cloud-framework/spring-gateway-route</module>
     </modules>
 
     <name>${project.artifactId}</name>
